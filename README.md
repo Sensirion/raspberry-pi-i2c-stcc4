@@ -1,6 +1,7 @@
 # Sensirion Raspberry Pi I²C STCC4 Driver
 
-The repository provides a driver for setting up a STCC4 sensor to run on a Raspberry Pi over I²C.
+The repository provides a driver for setting up a STCC4 sensor
+to run on a Raspberry Pi over I²C.
 
 <img src="images/STCC4.png" width="300px">
 
