@@ -77,8 +77,22 @@ int main(void) {
         error = stcc4_read_measurement(&co2_concentration, &temperature,
                                        &relative_humidity, &sensor_status);
         if (error != NO_ERROR) {
-            printf("error executing read_measurement(): %i\n", error);
-            continue;
+            // A read fail could be caused by clock shitfting, retry shifting
+            // read by 150ms.
+            printf("error executing read_measurement_raw(): %i. Retrying in "
+                   "150ms.\n",
+                   error);
+            sensirion_hal_sleep_us(150000);
+
+            error = stcc4_read_measurement(&co2_concentration, &temperature,
+                                           &relative_humidity, &sensor_status);
+
+            if (error != NO_ERROR) {
+                printf(
+                    "error executing read_measurement_raw() after retry: %i.\n",
+                    error);
+                continue;
+            }
         }
         printf("co2_concentration: %i ", co2_concentration);
         printf("temperature: %.2f ", temperature);
