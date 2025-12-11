@@ -291,7 +291,7 @@ int16_t stcc4_enter_sleep_mode() {
     if (local_error != NO_ERROR) {
         return local_error;
     }
-    sensirion_i2c_hal_sleep_usec(2 * 1000);
+    sensirion_i2c_hal_sleep_usec(1 * 1000);
     return local_error;
 }
 
