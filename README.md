@@ -8,11 +8,13 @@ to run on a Raspberry Pi over I²C.
 Click [here](https://sensirion.com/products/catalog/STCC4) to learn more about the Sensirion STCC4 sensor.
 
 
+The STCC4 is Sensirion's next generation miniature CO2 sensor for indoor air quality applications.
+
+
 
 The default I²C address of [STCC4](https://sensirion.com/products/catalog/STCC4) is **0x64**.
 
-> [!NOTE]
-> The SEK-STCC4 board from Sensirion includes a STCC4 and a SHT4x for temperature and humidity compensation, which is controlled by the STCC4 through the integrated I2C controller interface. The provided examples are designed considering this sensor configuration.
+
 
 ## Connect the sensor
 
@@ -92,7 +94,7 @@ If you run `./stcc4_i2c_example_usage` but do not get sensor readings but someth
 ```
 Error executing stop_continuous_measurement(): -1
 Error executing get_product_id(): -1
-Error executing start_continuous_measurement(): -1
+Error executing check_self_test(): -1
 ...
 ```
 then go through the below troubleshooting steps.
